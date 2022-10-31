@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
   res.json(allThoughts);
 });
 
-router.get("/", async (req, res) => {
+router.get("/:id", async (req, res) => {
   const singleThought = await thoughtModel.findById(req.params.id);
   res.json(singleThought);
 });

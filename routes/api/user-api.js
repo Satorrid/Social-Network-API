@@ -1,7 +1,10 @@
 const express = require("express");
 const userModel = require("../../models/user");
+const friendRoutes = require("./friends-api");
 
 const router = express.Router();
+
+router.use("/", friendRoutes);
 
 router.post("/", async (req, res) => {
   const newUser = await userModel.create(req.body);
@@ -14,7 +17,9 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-  const foundUser = await userModel.findById(req.params.id);
+  const foundUser = await userModel
+    .findById(req.params.id)
+    .populate("friends thoughts");
   res.json(foundUser);
 });
 
