@@ -18,7 +18,7 @@ This is a project to demonstrate the use of NoSQL by building a social network A
 This can be used as an API for social network apps.
 
 ## Installation
---
+Clone this repo, run npm and start!
 
 ## Contributing
 --
